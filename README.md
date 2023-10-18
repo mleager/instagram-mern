@@ -3,6 +3,8 @@ Full-Stack Instgram Clone using MERN Stack and Socket.io
 
 [Visit Now](https://instagramernstack.herokuapp.com/) 🚀
 
+**ORIGINAL PROJECT BY: [Jigar Sable](https://github.com/jigar-sable/instagram-mern)**
+
 ## 🖥️ Tech Stack
 **Frontend:**
 
