@@ -302,8 +302,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     try {
         await sendEmail({
             email: user.email,
-            templateId: process.env.SENDGRID_RESET_TEMPLATEID,
+            templateId: process.env.POSTMARK_RESET_TEMPLATEID,
             data: {
+                name: user.email,
+                product_name: "Instagram",
                 reset_url: resetPasswordUrl
             }
         });
