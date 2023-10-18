@@ -1,20 +1,22 @@
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+var postmark = require("postmark");
+let client = new postmark.ServerClient(process.env.POSTMARK_API_KEY);
 
-const sendEmail = async (options) => {
-
-    const msg = {
-        to: options.email,
-        from: process.env.SENDGRID_MAIL,
-        templateId: options.templateId,
-        dynamic_template_data: options.data,
+const sendEmail = async (options) => client.sendEmailWithTemplate(
+    {
+        TemplateId: options.templateId,
+        From: process.env.POSTMARK_MAIL,
+        To: options.email,
+        TemplateModel: {
+            "name": options.data.name,
+            "product_name": options.data.product_name,
+            "action_url": options.data.reset_url
+        }
     }
-    
-    sgMail.send(msg).then(() => {
-        console.log('Email Sent')
-    }).catch((error) => {
-        console.error(error)
-    });
-};
+).then(response => {
+    console.log("Sending message");
+    console.log(response.To);
+    console.log(response.Message);
+});
+
 
 module.exports = sendEmail;
