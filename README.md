@@ -1,9 +1,33 @@
 # Instagram MERN
 Full-Stack Instgram Clone using MERN Stack and Socket.io
 
-[Visit Now](https://instagramernstack.herokuapp.com/) 🚀
-
 **ORIGINAL PROJECT BY: [Jigar Sable](https://github.com/jigar-sable/instagram-mern)**
+
+- Project was modified to use Postmark instead of SendGrid.
+
+## Instructions
+### Prerequisites:
+1. ***AWS S3 Bucket:*** to store User's Profile Picture, Posts, etc.
+2. ***Postmark Account and API Key:*** to send 'Forgot Password' emails<br>
+`Requires an email address from a Private Domain (not Google, Yahoo, etc.) | I used AWS Workmail`<br> 
+4. ***MongoDB Account, Public & Private Keys, Organziation, Cluster, User, IP Access List:*** to save User data
+### Backend:
+1. Replace <b>/backend/config/config.env.example</b> with your infomation
+2. Rename <b>config.env.example</b> to <b>config.env</b>
+3. cd into <b>/backend</b> directory
+4. Install dependencies <br>
+`>> sudo npm install`
+6. Start server <br>
+`>> sudo npm start`
+### Frontend:
+1. Replace `"proxy": "localhost:4000"` in <b>/frontend/package.json</b> with your <b>Internal ALB DNS Name</b> or <b>Backend EC2 IP</b>
+2. cd into <b>/frontend</b> directory
+3. Install dependencies <br>
+`>> sudo npm install`
+5. Start server <br>
+`>> sudo npm start`
+### NOTE:
+To deploy this project using Terraform, visit my GitHub Repo: https://github.com/mleager/Instagram-Clone
 
 ## 🖥️ Tech Stack
 **Frontend:**
